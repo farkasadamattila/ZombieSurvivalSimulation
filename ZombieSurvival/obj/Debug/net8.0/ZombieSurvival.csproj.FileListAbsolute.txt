@@ -12,3 +12,4 @@ C:\Users\Farkas Ádám\Downloads\ZombieSurvivalSimulation\ZombieSurvival\obj\Deb
 C:\Users\Farkas Ádám\Downloads\ZombieSurvivalSimulation\ZombieSurvival\obj\Debug\net8.0\ZombieSurvival.pdb
 C:\Users\Farkas Ádám\Downloads\ZombieSurvivalSimulation\ZombieSurvival\obj\Debug\net8.0\ZombieSurvival.genruntimeconfig.cache
 C:\Users\Farkas Ádám\Downloads\ZombieSurvivalSimulation\ZombieSurvival\obj\Debug\net8.0\ref\ZombieSurvival.dll
+C:\Users\Farkas Ádám\Downloads\ZombieSurvivalSimulation\ZombieSurvival\obj\Debug\net8.0\ZombieSurvival.sourcelink.json
