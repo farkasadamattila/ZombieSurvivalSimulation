@@ -1,1 +1,2 @@
-"# ZombieSurvivalSimulation" 
+Apokaliptikus zombitúlélő/szimulátor 
+
