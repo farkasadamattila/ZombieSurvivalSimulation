@@ -2,7 +2,7 @@ using System;
 
 public class Survivor
 {
-    private static readonly string[] Names = { "Alex", "Jordan", "Taylor", "Morgan", "Casey", "Riley", "Quinn", "Avery", "Parker", "Reese" };
+    private static readonly string[] Names = { "Árpád", "Dezsõ", "Köbi Kapitány", "Lézer Jani", "Piros angry bird", "Ferec", "Német ember", "Sósavkapitány", "Szecskamester", "Kacsa" };
     private static readonly Random rand = new Random();
 
     private int health;
@@ -11,7 +11,7 @@ public class Survivor
     private bool isSick;
     private int morale;
     public string Name { get; private set; }
-    public bool IsSick => isSick;
+    public bool IsSick;
 
     public Survivor()
     {

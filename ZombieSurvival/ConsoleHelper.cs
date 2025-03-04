@@ -5,7 +5,7 @@ public class ConsoleHelper
 {
     public async Task<string> GetInput()
     {
-        return await Task.Run(() => Console.ReadLine());
+        return Console.ReadLine();
     }
 
     public void ShowMenu(string[] options)

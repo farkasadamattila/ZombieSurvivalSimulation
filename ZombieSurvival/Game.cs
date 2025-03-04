@@ -73,7 +73,7 @@ public class Game
             for (int i = 0; i < days; i++)
             {
                 console.ShowInlineMessage("-");
-                await Task.Delay(500); // Simulate some delay
+                await Task.Delay(1000); // Simulate some delay
                 SimulateDay();
             }
             console.ShowMessage("\nSimulation complete. Press any key to return...");
@@ -87,22 +87,19 @@ public class Game
 
     private void SimulateDay()
     {
-        // Adjust survivor status and remove dead survivors
         survivors.RemoveAll(survivor => !survivor.UpdateStatus());
 
-        // Adjust inventory
         shelter.ChangeResources(-rand.Next(1, 3), -rand.Next(1, 3));
 
-        // Trigger random event
         TriggerEvent();
     }
 
     private void TriggerEvent()
     {
         int eventChance = rand.Next(1, 101);
-        if (eventChance <= 20) // 20% chance for an event
+        if (eventChance <= 20)
         {
-            int eventType = rand.Next(1, 21);
+            int eventType = rand.Next(1, 23);
             switch (eventType)
             {
                 case 1:
