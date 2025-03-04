@@ -6,7 +6,8 @@ class Program
 {
     static async Task Main()
     {
-        Game game = new Game(new ConsoleHelper());
+        Game.ConsoleHelper consoleHelper = new Game.ConsoleHelper();
+        Game game = new Game(consoleHelper);
         await game.Start();
     }
 }

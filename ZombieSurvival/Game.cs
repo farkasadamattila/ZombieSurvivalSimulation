@@ -1,20 +1,17 @@
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
 public class Game
 {
     private Shelter shelter;
     private List<Survivor> survivors;
     private ConsoleHelper console;
-    private string[] menuOptions = { "Simulate Days", "View Inventory", "Manage Survivors", "Exit" };
+    private string[] menuOptions = { "Simulate Days", "View Inventory", "Manage Survivors", "Gather Resources", "Exit" };
     private Random rand = new Random();
     private bool running = true;
+    private int dayCounter = 0;
 
     public Game(ConsoleHelper console)
     {
         this.console = console;
-        shelter = new Shelter(rand.Next(10, 30), rand.Next(10, 30));
+        shelter = new Shelter(rand.Next(5, 15), rand.Next(5, 15), rand.Next(5, 15));
         survivors = new List<Survivor>();
         for (int i = 0; i < rand.Next(3, 7); i++)
         {
@@ -26,7 +23,7 @@ public class Game
     {
         while (running)
         {
-            console.ShowMenu(menuOptions);
+            console.ShowMenu(menuOptions, dayCounter); // Pass dayCounter to ShowMenu
             await HandleInput();
         }
     }
@@ -48,6 +45,9 @@ public class Game
                     await ManageSurvivors();
                     break;
                 case 4:
+                    await GatherResources();
+                    break;
+                case 5:
                     running = false;
                     console.ShowMessage("Exiting game...");
                     break;
@@ -58,7 +58,7 @@ public class Game
         }
         else
         {
-            console.ShowMessage("Invalid input. Please enter a number between 1 and 4.");
+            console.ShowMessage("Invalid input. Please enter a number between 1 and 5.");
         }
     }
 
@@ -73,7 +73,7 @@ public class Game
             for (int i = 0; i < days; i++)
             {
                 console.ShowInlineMessage("-");
-                await Task.Delay(1000); // Simulate some delay
+                await Task.Delay(1000);
                 SimulateDay();
             }
             console.ShowMessage("\nSimulation complete. Press any key to return...");
@@ -87,19 +87,22 @@ public class Game
 
     private void SimulateDay()
     {
+        dayCounter++;
         survivors.RemoveAll(survivor => !survivor.UpdateStatus());
 
-        shelter.ChangeResources(-rand.Next(1, 3), -rand.Next(1, 3));
+        // Increased resource consumption
+        shelter.ChangeResources(-rand.Next(2, 4), -rand.Next(2, 4));
 
         TriggerEvent();
+        CheckEndGameConditions();
     }
 
     private void TriggerEvent()
     {
         int eventChance = rand.Next(1, 101);
-        if (eventChance <= 20)
+        if (eventChance <= 30)
         {
-            int eventType = rand.Next(1, 23);
+            int eventType = rand.Next(1, 28);
             switch (eventType)
             {
                 case 1:
@@ -210,11 +213,48 @@ public class Game
                     break;
                 case 22:
                     console.ShowMessage("Mutant – A mutant is at the front door, requiring lots of ammunition to kill.");
-                    shelter.ChangeResources(0, -10);
+                    shelter.ChangeResources(0, 0, -10);
+                    break;
+                case 23:
+                    console.ShowMessage("Ammunition Cache – A survivor finds a stash of ammunition.");
+                    shelter.ChangeResources(0, 0, 10);
+                    break;
+                case 24:
+                    console.ShowMessage("Resource Spoilage – Some resources spoil, reducing supplies.");
+                    shelter.ChangeResources(-rand.Next(1, 4), -rand.Next(1, 4));
+                    break;
+                case 25:
+                    console.ShowMessage("Random Death – A survivor dies unexpectedly.");
+                    if (survivors.Count > 0)
+                    {
+                        survivors.RemoveAt(rand.Next(survivors.Count));
+                    }
+                    break;
+                case 26:
+                    console.ShowMessage("Thief Attack – A thief steals a significant amount of resources.");
+                    shelter.ChangeResources(-rand.Next(3, 6), -rand.Next(3, 6));
+                    break;
+                case 27:
+                    console.ShowMessage("Fire – A fire breaks out, destroying some resources.");
+                    shelter.ChangeResources(-rand.Next(2, 5), -rand.Next(2, 5));
                     break;
                 default:
                     break;
             }
+        }
+    }
+
+    private void CheckEndGameConditions()
+    {
+        if (shelter.Food <= 0 && shelter.Water <= 0 && shelter.Medicine <= 0 && shelter.Ammunition <= 0)
+        {
+            console.ShowMessage("All resources depleted. Game over.");
+            running = false;
+        }
+        else if (survivors.Count == 0)
+        {
+            console.ShowMessage("All survivors are dead. Game over.");
+            running = false;
         }
     }
 
@@ -225,6 +265,7 @@ public class Game
         console.ShowMessage($"Food: {shelter.Food}");
         console.ShowMessage($"Water: {shelter.Water}");
         console.ShowMessage($"Medicine: {shelter.Medicine}");
+        console.ShowMessage($"Ammunition: {shelter.Ammunition}");
         console.ShowMessage("Press any key to return...");
         Console.ReadKey();
     }
@@ -351,6 +392,112 @@ public class Game
         else
         {
             console.ShowMessage("No medicine available!");
+        }
+    }
+
+    private async Task GatherResources()
+    {
+        console.ClearScreen();
+        console.ShowMessage("Gathering resources...");
+        console.ShowMessage("1. Scavenge for food");
+        console.ShowMessage("2. Collect water");
+        console.ShowMessage("3. Search for medicine");
+        console.ShowMessage("4. Hunt for food (uses ammunition)");
+        console.ShowMessage("5. Return to main menu");
+        console.ShowMessage("Choose an action: ");
+        string choice = await console.GetInput();
+        switch (choice)
+        {
+            case "1":
+                ScavengeForFood();
+                break;
+            case "2":
+                CollectWater();
+                break;
+            case "3":
+                SearchForMedicine();
+                break;
+            case "4":
+                HuntForFood();
+                break;
+            case "5":
+                return;
+            default:
+                console.ShowMessage("Invalid choice.");
+                break;
+        }
+        console.ShowMessage("Press any key to return...");
+        Console.ReadKey();
+    }
+
+    private void ScavengeForFood()
+    {
+        int foodFound = rand.Next(1, 6);
+        shelter.ChangeResources(foodFound, 0);
+        console.ShowMessage($"You scavenged and found {foodFound} units of food.");
+    }
+
+    private void CollectWater()
+    {
+        int waterCollected = rand.Next(1, 6);
+        shelter.ChangeResources(0, waterCollected);
+        console.ShowMessage($"You collected {waterCollected} units of water.");
+    }
+
+    private void SearchForMedicine()
+    {
+        int medicineFound = rand.Next(0, 3);
+        shelter.ChangeResources(0, 0, 0);
+        shelter.Medicine += medicineFound;
+        console.ShowMessage($"You searched and found {medicineFound} units of medicine.");
+    }
+
+    private void HuntForFood()
+    {
+        if (shelter.Ammunition > 0)
+        {
+            int foodHunted = rand.Next(3, 8);
+            shelter.ChangeResources(foodHunted, 0, -1);
+            console.ShowMessage($"You hunted and found {foodHunted} units of food, using 1 unit of ammunition.");
+        }
+        else
+        {
+            console.ShowMessage("Not enough ammunition to hunt for food.");
+        }
+    }
+
+
+    public class ConsoleHelper
+    {
+        public async Task<string> GetInput()
+        {
+            return await Task.Run(() => Console.ReadLine());
+        }
+
+        public void ShowMenu(string[] options, int dayCounter)
+        {
+            Console.Clear();
+            Console.WriteLine($"Day: {dayCounter}");
+            Console.WriteLine("=== Menu ===");
+            for (int i = 0; i < options.Length; i++)
+            {
+                Console.WriteLine($"{i + 1}. {options[i]}");
+            }
+        }
+
+        public void ShowMessage(string message)
+        {
+            Console.WriteLine(message);
+        }
+
+        public void ShowInlineMessage(string message)
+        {
+            Console.Write(message);
+        }
+
+        public void ClearScreen()
+        {
+            Console.Clear();
         }
     }
 }

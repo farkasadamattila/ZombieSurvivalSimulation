@@ -1,25 +1,30 @@
-using System;
-
 public class Shelter
 {
-    public int Food { get; private set; }
-    public int Water { get; private set; }
-    public int Medicine { get; private set; } = 5;
+    public int Food { get; set; }
+    public int Water { get; set; }
+    public int Medicine { get; set; }
+    public int Ammunition { get; set; }
 
-    public Shelter(int food, int water)
+    public Shelter(int food, int water, int ammunition)
     {
         Food = food;
         Water = water;
+        Medicine = 0;
+        Ammunition = ammunition;
     }
 
-    public void ChangeResources(int foodChange, int waterChange)
+    public void ChangeResources(int foodChange, int waterChange, int ammunitionChange = 0)
     {
-        Food = Math.Max(0, Food + foodChange);
-        Water = Math.Max(0, Water + waterChange);
+        Food += foodChange;
+        Water += waterChange;
+        Ammunition += ammunitionChange;
     }
 
     public void UseMedicine()
     {
-        Medicine = Math.Max(0, Medicine - 1);
+        if (Medicine > 0)
+        {
+            Medicine--;
+        }
     }
 }
