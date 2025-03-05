@@ -23,7 +23,7 @@ public class Game
     {
         while (running)
         {
-            console.ShowMenu(menuOptions, dayCounter); // Pass dayCounter to ShowMenu
+            console.ShowMenu(menuOptions, dayCounter);
             await HandleInput();
         }
     }
@@ -82,7 +82,7 @@ public class Game
         {
             console.ShowMessage("Invalid input. Please enter a number between 1 and 5.");
         }
-        Console.ReadKey();
+        Console.ReadKey(true);
     }
 
     private void SimulateDay()
@@ -90,7 +90,6 @@ public class Game
         dayCounter++;
         survivors.RemoveAll(survivor => !survivor.UpdateStatus());
 
-        // Increased resource consumption
         shelter.ChangeResources(-rand.Next(2, 4), -rand.Next(2, 4));
 
         TriggerEvent();
@@ -267,7 +266,7 @@ public class Game
         console.ShowMessage($"Medicine: {shelter.Medicine}");
         console.ShowMessage($"Ammunition: {shelter.Ammunition}");
         console.ShowMessage("Press any key to return...");
-        Console.ReadKey();
+        Console.ReadKey(true);
     }
 
     private async Task ManageSurvivors()
@@ -320,7 +319,7 @@ public class Game
                     break;
             }
             console.ShowMessage("Press any key to return...");
-            Console.ReadKey();
+            Console.ReadKey(true);
         }
     }
 
@@ -427,7 +426,7 @@ public class Game
                 break;
         }
         console.ShowMessage("Press any key to return...");
-        Console.ReadKey();
+        Console.ReadKey(true);
     }
 
     private void ScavengeForFood()

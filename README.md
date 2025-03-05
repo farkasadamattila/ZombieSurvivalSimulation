@@ -1,2 +1,0 @@
-Apokaliptikus zombitúlélő/szimulátor 
-

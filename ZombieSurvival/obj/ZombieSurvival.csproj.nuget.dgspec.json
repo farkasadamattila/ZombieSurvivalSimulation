@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Farkas Ádám\\Downloads\\ZombieSurvivalSimulation\\ZombieSurvival\\ZombieSurvival.csproj": {}
+    "Z:\\ZombieSurvivalSimulation\\ZombieSurvival\\ZombieSurvival.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Farkas Ádám\\Downloads\\ZombieSurvivalSimulation\\ZombieSurvival\\ZombieSurvival.csproj": {
+    "Z:\\ZombieSurvivalSimulation\\ZombieSurvival\\ZombieSurvival.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Farkas Ádám\\Downloads\\ZombieSurvivalSimulation\\ZombieSurvival\\ZombieSurvival.csproj",
+        "projectUniqueName": "Z:\\ZombieSurvivalSimulation\\ZombieSurvival\\ZombieSurvival.csproj",
         "projectName": "ZombieSurvival",
-        "projectPath": "C:\\Users\\Farkas Ádám\\Downloads\\ZombieSurvivalSimulation\\ZombieSurvival\\ZombieSurvival.csproj",
-        "packagesPath": "C:\\Users\\Farkas Ádám\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Farkas Ádám\\Downloads\\ZombieSurvivalSimulation\\ZombieSurvival\\obj\\",
+        "projectPath": "Z:\\ZombieSurvivalSimulation\\ZombieSurvival\\ZombieSurvival.csproj",
+        "packagesPath": "C:\\Users\\farkas.adam.attila\\.nuget\\packages\\",
+        "outputPath": "Z:\\ZombieSurvivalSimulation\\ZombieSurvival\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Farkas Ádám\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\farkas.adam.attila\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

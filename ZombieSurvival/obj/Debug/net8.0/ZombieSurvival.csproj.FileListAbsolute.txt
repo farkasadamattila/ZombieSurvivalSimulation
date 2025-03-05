@@ -13,3 +13,18 @@ C:\Users\Farkas Ádám\Downloads\ZombieSurvivalSimulation\ZombieSurvival\obj\Deb
 C:\Users\Farkas Ádám\Downloads\ZombieSurvivalSimulation\ZombieSurvival\obj\Debug\net8.0\ZombieSurvival.genruntimeconfig.cache
 C:\Users\Farkas Ádám\Downloads\ZombieSurvivalSimulation\ZombieSurvival\obj\Debug\net8.0\ref\ZombieSurvival.dll
 C:\Users\Farkas Ádám\Downloads\ZombieSurvivalSimulation\ZombieSurvival\obj\Debug\net8.0\ZombieSurvival.sourcelink.json
+Z:\ZombieSurvivalSimulation\ZombieSurvival\bin\Debug\net8.0\ZombieSurvival.exe
+Z:\ZombieSurvivalSimulation\ZombieSurvival\bin\Debug\net8.0\ZombieSurvival.deps.json
+Z:\ZombieSurvivalSimulation\ZombieSurvival\bin\Debug\net8.0\ZombieSurvival.runtimeconfig.json
+Z:\ZombieSurvivalSimulation\ZombieSurvival\bin\Debug\net8.0\ZombieSurvival.dll
+Z:\ZombieSurvivalSimulation\ZombieSurvival\bin\Debug\net8.0\ZombieSurvival.pdb
+Z:\ZombieSurvivalSimulation\ZombieSurvival\obj\Debug\net8.0\ZombieSurvival.GeneratedMSBuildEditorConfig.editorconfig
+Z:\ZombieSurvivalSimulation\ZombieSurvival\obj\Debug\net8.0\ZombieSurvival.AssemblyInfoInputs.cache
+Z:\ZombieSurvivalSimulation\ZombieSurvival\obj\Debug\net8.0\ZombieSurvival.AssemblyInfo.cs
+Z:\ZombieSurvivalSimulation\ZombieSurvival\obj\Debug\net8.0\ZombieSurvival.csproj.CoreCompileInputs.cache
+Z:\ZombieSurvivalSimulation\ZombieSurvival\obj\Debug\net8.0\ZombieSurvival.sourcelink.json
+Z:\ZombieSurvivalSimulation\ZombieSurvival\obj\Debug\net8.0\ZombieSurvival.dll
+Z:\ZombieSurvivalSimulation\ZombieSurvival\obj\Debug\net8.0\refint\ZombieSurvival.dll
+Z:\ZombieSurvivalSimulation\ZombieSurvival\obj\Debug\net8.0\ZombieSurvival.pdb
+Z:\ZombieSurvivalSimulation\ZombieSurvival\obj\Debug\net8.0\ZombieSurvival.genruntimeconfig.cache
+Z:\ZombieSurvivalSimulation\ZombieSurvival\obj\Debug\net8.0\ref\ZombieSurvival.dll

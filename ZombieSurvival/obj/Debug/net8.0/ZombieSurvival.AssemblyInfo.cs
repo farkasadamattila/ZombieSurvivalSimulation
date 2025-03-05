@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ZombieSurvival")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0c30f44d66677613881c9149054d4526ce19a524")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+601372d1e7287a763a08bbdb94bc74e35eda006e")]
 [assembly: System.Reflection.AssemblyProductAttribute("ZombieSurvival")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ZombieSurvival")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
